@@ -2,7 +2,7 @@ const debug = require('debug')('auth')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
-const User = require('APP/db/models/user')
+const User = require('../db/models/user')
 
 const auth = require('express').Router()
 

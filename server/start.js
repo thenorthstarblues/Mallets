@@ -10,7 +10,7 @@ const passport = require('passport')
 // saying require('APP/whatever').
 //
 // This next line requires our root index.js:
-const pkg = require('APP')
+const pkg = require('../index.js')
 
 const app = express()
 
