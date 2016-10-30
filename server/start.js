@@ -5,10 +5,6 @@ const bodyParser = require('body-parser')
 const {resolve} = require('path')
 const passport = require('passport')
 
-// Bones has a symlink from node_modules/APP to the root of the app.
-// That means that we can require paths relative to the app root by
-// saying require('APP/whatever').
-//
 // This next line requires our root index.js:
 const pkg = require('../index.js')
 
