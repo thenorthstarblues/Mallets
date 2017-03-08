@@ -14,6 +14,7 @@ OAuth.belongsTo(User)
 User.hasOne(OAuth)
 User.hasMany(Recording)
 Kit.hasMany(Sample)
+Kit.hasMany(Recording)
 
 
 module.exports = { User, Kit, Recording, Sample }
