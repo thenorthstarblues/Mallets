@@ -1,10 +1,9 @@
+import firebase from 'APP/firebase'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
-
-import {whoami} from './reducers/auth'
 
 const store = createStore(
   rootReducer,
@@ -18,5 +17,7 @@ const store = createStore(
 
 export default store
 
-// Set the auth info at start
-store.dispatch(whoami())
+// Attach the auth reducer to Firebase
+import {authenticated} from './reducers/auth'
+firebase.auth()
+  .onAuthStateChanged(user => store.dispatch(authenticated(user)))
