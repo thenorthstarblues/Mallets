@@ -1,7 +1,7 @@
 'use strict'
 const app = require('APP')
-const debugSQL = require('debug')('sql') // DEBUG=sql
-const debugDB = require('debug')(`${app.name}:db`) // DEBUG=your_app_name:db
+const debugSQL = require('debug')('sql')
+const debugDB = require('debug')(`${app.name}:db`)
 const chalk = require('chalk')
 const Sequelize = require('sequelize')
 
@@ -12,9 +12,8 @@ const url = process.env.DATABASE_URL || `postgres://localhost:5432/${name}`
 
 debugDB(chalk.yellow(`Opening database connection to ${url}`));
 
-// create the database instance
 const db = module.exports = new Sequelize(url, {
-  logging: debugSQL, // export DEBUG=sql in the environment to get SQL queries
+  logging: debugSQL,
   define: {
     underscored: true,       // use snake_case rather than camelCase column names
     freezeTableName: true,   // don't change table names from the one specified
@@ -22,10 +21,8 @@ const db = module.exports = new Sequelize(url, {
   }
 })
 
-// pull in our models
 require('./models')
 
-// sync the db, creating it if necessary
 function sync(force=app.isTesting, retries=0, maxRetries=5) {
   return db.sync({force})
     .then(ok => debugDB(`Synced models to db ${url}`))

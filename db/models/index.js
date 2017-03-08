@@ -6,7 +6,14 @@
 
 const User = require('./user')
 const OAuth = require('./oauth')
+const Kit = require('./kit')
+const Recording = require('./recording')
+const Sample = require('./sample')
 
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
-module.exports = {User}
+User.hasMany(Recording)
+Kit.hasMany(Sample)
+
+
+module.exports = { User, Kit, Recording, Sample }
