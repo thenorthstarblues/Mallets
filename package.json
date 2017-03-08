@@ -1,7 +1,7 @@
 {
-  "name": "__BONES_NEEDS_A_NAME__",
+  "name": "my_drum_machine",
   "version": "0.0.1",
-  "description": "A happy little skeleton.",
+  "description": "A place for making tight beats",
   "main": "index.js",
   "scripts": {
     "validate": "check-node-version --node '>= 6.7.0'",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/queerviolet/bones.git"
+    "url": "git+https://github.com/thenorthstarblues/bones.git"
   },
   "keywords": [
     "react",
