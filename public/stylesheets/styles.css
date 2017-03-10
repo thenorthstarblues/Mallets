@@ -1,0 +1,36 @@
+.my-header {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: lightgrey;
+  height: 5vh;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.my-footer {
+	position: absolute;
+	bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: lightgrey;
+  height: 5vh;
+  border-top: 2px solid grey;
+  overflow: hidden;
+}
+
+.app-wrapper {
+  margin: 5vh 0vh 5vh 0vh;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.footer-text {
+  font-family: 'Orbitron', sans-serif;
+}
+
