@@ -2,12 +2,16 @@ import React from 'react'
 
 const Navbar = (props) => {
   return (
-    <div className="row my-header">
-      <div className="col-xs-6">
-          <p className="logo">STICK</p>
+    <div className="ui large teal inverted top fixed menu">
+      <div className="left menu">
+        <div className="header link item">
+          <a>Mallets</a>
+        </div>
       </div>
-      <div className="col-xs-6">
-          <button className="btn">Log in</button>
+      <div className="right menu">
+        <div className="item">
+          <button className="ui button">Log in</button>
+        </div>
       </div>
     </div>
   )

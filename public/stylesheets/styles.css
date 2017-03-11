@@ -1,12 +1,5 @@
-.my-header {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  background-color: lightgrey;
-  height: 5vh;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+.orb {
+  font-size: 1.5rem;
 }
 
 .my-footer {

@@ -2,15 +2,13 @@ import React from 'react'
 
 const Footer = (props) => {
   return (
-    <footer className="my-footer">
-      <div>
-        <div>
+    <footer className="ui bottom fixed menu">
+      <div className="right">
+        <div className="item">
           <p>DM, 2017</p>
         </div>
-        <div>
-          <a href="https://github.com/thenorthstarblues">
-            icon
-          </a>
+        <div className="item">
+          <i className="github icon"></i>
         </div>
       </div>
     </footer>
