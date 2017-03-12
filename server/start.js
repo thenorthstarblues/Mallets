@@ -8,7 +8,6 @@ const PrettyError = require('pretty-error')
 const finalHandler = require('finalhandler')
 const pkg = require('APP')
 const app = express()
-const socketio = require('socket.io')
 
 
 if (!pkg.isProduction && !pkg.isTesting) {
@@ -20,8 +19,6 @@ prettyError.skipNodeFiles()
 prettyError.skipPackage('express')
 
 module.exports = app
-  // Session middleware - compared to express-session (which is what's used in the Auther workshop), cookie-session stores sessions in a cookie, rather than some other type of session store.
-  // Cookie-session docs: https://www.npmjs.com/package/cookie-session
   .use(require('cookie-session') ({
     name: 'session',
     keys: [process.env.SESSION_SECRET || 'an insecure secret key'],
@@ -36,14 +33,11 @@ module.exports = app
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
 
   .use((err, req, res, next) => {
-    console.error('THI IS AN ERROR', err)
-    // finalHandler(req, res)(err)
+    console.error(err.stack)
+    finalHandler(req, res)(err)
   })
 
 if (module === require.main) {
-  // Start listening only if we're the main module.
-  //
-  // https://nodejs.org/api/modules.html#modules_accessing_the_main_module
   const server = app.listen(
     process.env.PORT || 1337,
     () => {
@@ -78,8 +72,3 @@ if (module === require.main) {
     })
   })
 }
-
-
-// This check on line 64 is only starting the server if this file is being run directly by Node, and not required by another file.
-// Bones does this for testing reasons. If we're running our app in development or production, we've run it directly from Node using 'npm start'.
-// If we're testing, then we don't actually want to start the server; 'module === require.main' will luckily be false in that case, because we would be requiring in this file in our tests rather than running it directly.

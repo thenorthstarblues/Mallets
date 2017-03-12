@@ -2,14 +2,21 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import { setRoom } from '../reducers/room'
 
 class Frame extends Component {
+  constructor(props){
+    super(props);
+  }
+
   render(){
     return (
       <div className="no-overflow">
-        <Navbar />
+        <Navbar user={this.props.user} />
         <div className="container is-fluid body-height">
-          { this.props.children }
+          { this.props &&
+              this.props.children && React.cloneElement(this.props.children, Object.assign({}, this.props))
+          }
         </div>
         <Footer />
       </div>
@@ -19,11 +26,19 @@ class Frame extends Component {
 
 
 const mapStateToProps = (state) => {
-  return {}
+  return {
+    room: state.room,
+    kit: state.kit,
+    user: state.user,
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+    setRoom(roomName){
+      dispatch(setRoom(roomName))
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Frame)

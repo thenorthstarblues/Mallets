@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navbar = (props) => {
+const Navbar = ({ user }) => {
   return (
     <nav className="nav has-shadow">
       <div className="nav-left">
@@ -9,7 +9,7 @@ const Navbar = (props) => {
         </div>
         <div className="nav-right">
           <div className="nav-item">
-            <button className="button is-info">Log in</button>
+            <button className="button is-info">{user ? 'Log out' : 'Log in'}</button>
           </div>
         </div>
       </div>

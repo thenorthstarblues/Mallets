@@ -8,6 +8,7 @@ class Kit extends Component {
     super(props);
     this.state = {
       play: {},
+      kit: this.props.kit,
     }
     socket.on('receive play', (payload) => {
       this.updateStateFromSockets(payload)
@@ -24,19 +25,17 @@ class Kit extends Component {
   }
 
   componentDidMount() {
-    socket.emit('room', {room: 'room 237'});
-    this.setState({users: users})
-
+    socket.emit('room', {room: this.props.room})
   }
 
   componentWillUnmount() {
-    socket.emit('leave room', { room: 'room 237' })
+    socket.emit('leave room', { room: this.props.room })
   }
 
   onKeyDown(keyName) {
     this.setState({ play: {[keyName]: true } })
     socket.emit('play', {
-      room: 'room 237',
+      room: this.props.room,
       keyName
     })
   }
@@ -44,7 +43,7 @@ class Kit extends Component {
   onKeyUp(keyName) {
     this.setState({ play: { [keyName]: false} })
     socket.emit('stop', {
-      room: 'room 237',
+      room: this.props.room,
       keyName
     })
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const KeyboardMenu = (props) => {
+const Menu = (props) => {
   return (
     <div>
       <section className="hero is-success">
@@ -19,12 +19,16 @@ const KeyboardMenu = (props) => {
       <div className="tile-box">
         <div className="tile is-ancestor is-vertical menu-tile">
           <div className="tile is-parent is-vertical">
+            <Link to="/new-room">
             <div className="tile is-child box button">
               <p className="title">Start a room</p>
             </div>
+            </Link>
+            <Link to="/join-room">
             <div className="tile is-child box button">
               <p className="title">Join a room</p>
             </div>
+            </Link>
             <Link to="/kit">
               <div className="tile is-child box button">
                 <p className="title">Play by myself</p>
@@ -37,4 +41,4 @@ const KeyboardMenu = (props) => {
   )
 }
 
-export default KeyboardMenu;
+export default Menu;
