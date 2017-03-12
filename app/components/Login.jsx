@@ -1,14 +1,34 @@
 import React from 'react'
 
 export const Login = ({ login }) => (
-  <form onSubmit={evt => {
-    evt.preventDefault()
-    login(evt.target.username.value, evt.target.password.value)
-  } }>
-    <input name="username" />
-    <input name="password" type="password" />
-    <input type="submit" value="Login" />
-  </form>
+    <div className="modal is-active">
+      <div className="modal-background"></div>
+      <div className="modal-card">
+        <header className="modal-card-head">
+          <p className="modal-card-title">Welcome</p>
+          <button className="delete"></button>
+        </header>
+        <section className="modal-card-body">
+          <form>
+            <p className="control has-icon">
+            <input className="input" type="email" placeholder="Email" />
+            <span className="icon is-small">
+              <i className="fa fa-envelope"></i>
+            </span>
+            </p>
+            <p className="control has-icon">
+              <input className="input" type="password" placeholder="Password" />
+              <span className="icon is-small">
+                <i className="fa fa-lock"></i>
+              </span>
+            </p>
+          </form>
+        </section>
+        <footer className="modal-card-foot">
+          <a className="button is-success">Login</a>
+        </footer>
+      </div>
+    </div>
 )
 
 import {login} from 'APP/app/reducers/auth'
