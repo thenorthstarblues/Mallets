@@ -2,19 +2,19 @@ import React from 'react'
 
 const Navbar = (props) => {
   return (
-    <div className="ui large teal inverted top fixed menu">
-      <div className="left menu">
-        <div className="header link item">
-          <a>Mallets</a>
+    <nav className="nav has-shadow">
+      <div className="nav-left">
+        <div className="nav-item">
+          <h1 className="logo">MALLETS</h1>
+        </div>
+        <div className="nav-right">
+          <div className="nav-item">
+            <button className="button is-info">Log in</button>
+          </div>
         </div>
       </div>
-      <div className="right menu">
-        <div className="item">
-          <button className="ui button">Log in</button>
-        </div>
-      </div>
-    </div>
+    </nav>
   )
 }
 
-export default Navbar
+export default Navbar;

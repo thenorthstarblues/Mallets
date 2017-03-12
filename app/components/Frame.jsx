@@ -6,9 +6,9 @@ import Footer from './Footer'
 const Frame = (props) => {
 
   return (
-    <div>
+    <div className="no-overflow">
       <Navbar />
-      <div>
+      <div className="container is-fluid">
         { props.children }
       </div>
       <Footer />

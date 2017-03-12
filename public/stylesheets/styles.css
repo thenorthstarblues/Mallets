@@ -1,5 +1,5 @@
-.orb {
-  font-size: 1.5rem;
+.no-overflow {
+  overflow: hidden;
 }
 
 .my-footer {
@@ -7,10 +7,11 @@
 	bottom: 0px;
   right: 0px;
   left: 0px;
-  background-color: lightgrey;
-  height: 5vh;
-  border-top: 2px solid grey;
-  overflow: hidden;
+  border-top: 2px solid lightgray;
+}
+
+.footer-text {
+  font-family: 'Orbitron', sans-serif;
 }
 
 .app-wrapper {
@@ -20,27 +21,66 @@
 }
 
 .logo {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 600;
-  font-size: 2rem;
-}
-
-.footer-text {
-  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
 }
 
 .kit-container {
-  height: 40vh;
-  width: 75%;
-  border: 2px solid black;
+  height:70vh;
+  width:70vw;
+  margin:5em auto;
+  padding:2em 0 0 2em;
+  position:relative;
+  border:1px solid #160801;
+  border-radius:1em;
+  background: mediumaquamarine;
+  box-shadow:0 0 50px rgba(0,0,0,0.5) inset, 0 1px rgba(212,152,125,0.2) inset,0 5px 15px rgba(0,0,0,0.5);
   display: flex;
-  justify-content: space-around;
-  align-content: center;
+  flex-direction: column;
 }
 
-.drum-pad {
-  height: 5vh;
-  width: 5vh;
-  border: 2px solid black;
+.key-row {
+  margin: auto;
+  padding: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
+.key {
+  margin:0 2px;
+  padding:0;
+  height: 25vh;
+  width: 5vw;
+  border:1px solid white;
+  background: #276cda;
+  box-shadow:-1px 0 0 rgba(255,255,255,0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0,0,0,0.2);
+	border-radius:.5em;
+}
+
+.top {
+  margin-top: 3em;
+  position: relative;
+  float: left;
+}
+
+.bottom {
+  position: relative;
+  bottom: 1vh;
+  float: right;
+}
+
+.key h1 {
+  font-family: 'Lato';
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  left: 1vw;
+  bottom: 0;
+}
+
+.right-marg {
+  margin-right: 3em;
+}
