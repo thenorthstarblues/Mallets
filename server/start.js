@@ -9,7 +9,6 @@ const finalHandler = require('finalhandler')
 const pkg = require('APP')
 const app = express()
 
-
 if (!pkg.isProduction && !pkg.isTesting) {
   app.use(require('volleyball'))
 }
