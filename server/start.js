@@ -6,29 +6,17 @@ const {resolve} = require('path')
 const passport = require('passport')
 const PrettyError = require('pretty-error')
 const finalHandler = require('finalhandler')
-// PrettyError docs: https://www.npmjs.com/package/pretty-error
-
-// Bones has a symlink from node_modules/APP to the root of the app.
-// That means that we can require paths relative to the app root by
-// saying require('APP/whatever').
-//
-// This next line requires our root index.js:
 const pkg = require('APP')
-
 const app = express()
+const socketio = require('socket.io')
+
 
 if (!pkg.isProduction && !pkg.isTesting) {
-  // Logging middleware (dev only)
   app.use(require('volleyball'))
 }
 
-// Pretty error prints errors all pretty.
-const prettyError = new PrettyError();
-
-// Skip events.js and http.js and similar core node files.
+const prettyError = new PrettyError()
 prettyError.skipNodeFiles()
-
-// Skip all the trace lines about express' core and sub-modules.
 prettyError.skipPackage('express')
 
 module.exports = app
@@ -39,29 +27,17 @@ module.exports = app
     keys: [process.env.SESSION_SECRET || 'an insecure secret key'],
   }))
 
-  // Body parsing middleware
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
-
-  // Authentication middleware
   .use(passport.initialize())
   .use(passport.session())
-
-  // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
-
-  // Serve our api - ./api also requires in ../db, which syncs with our database
   .use('/api', require('./api'))
-
-  // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
 
-  // Error middleware interceptor, delegates to same handler Express uses.
-  // https://github.com/expressjs/express/blob/master/lib/application.js#L162
-  // https://github.com/pillarjs/finalhandler/blob/master/index.js#L172
   .use((err, req, res, next) => {
-    console.error(prettyError.render(err))
-    finalHandler(req, res)(err)
+    console.error('THI IS AN ERROR', err)
+    // finalHandler(req, res)(err)
   })
 
 if (module === require.main) {
@@ -78,7 +54,31 @@ if (module === require.main) {
       console.log(`Listening on http://${urlSafeHost}:${port}`)
     }
   )
+
+  const io = require('socket.io')(server);
+  io.on('connection', (socket) => {
+    console.log('a user connected')
+
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    })
+    socket.on('room', function(data) {
+      socket.join(data.room);
+    })
+    socket.on('leave room', (data) => {
+      socket.leave(data.room)
+    })
+    socket.on('play', function(data) {
+      socket.broadcast.to(data.room).emit('receive play',
+      data)
+    })
+    socket.on('stop', function(data) {
+      socket.broadcast.to(data.room).emit('receive stop',
+      data)
+    })
+  })
 }
+
 
 // This check on line 64 is only starting the server if this file is being run directly by Node, and not required by another file.
 // Bones does this for testing reasons. If we're running our app in development or production, we've run it directly from Node using 'npm start'.

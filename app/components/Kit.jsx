@@ -1,26 +1,52 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react';
 import { Note, KeyBinding } from 'react-orchestra';
+const io = require('socket.io-client')
+const socket = io()
 
 class Kit extends Component {
   constructor(props){
     super(props);
     this.state = {
       play: {},
-    };
-
+    }
+    socket.on('receive play', (payload) => {
+      this.updateStateFromSockets(payload)
+    })
+    socket.on('receive stop', (payload) => {
+      this.updateStateFromSockets(payload)
+    })
     this.onKeyDown = this.onKeyDown.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
   }
 
-  onKeyDown(keyName) {
-    this.setState({ play: {
-      [keyName]: true,
-    } });
+  updateStateFromSockets(payload) {
+    this.setState({[payload.keyName]: ![payload.keyName]})
   }
+
+  componentDidMount() {
+    socket.emit('room', {room: 'room 237'});
+    this.setState({users: users})
+
+  }
+
+  componentWillUnmount() {
+    socket.emit('leave room', { room: 'room 237' })
+  }
+
+  onKeyDown(keyName) {
+    this.setState({ play: {[keyName]: true } })
+    socket.emit('play', {
+      room: 'room 237',
+      keyName
+    })
+  }
+
   onKeyUp(keyName) {
-    this.setState({ play: {
-      [keyName]: false,
-    } });
+    this.setState({ play: { [keyName]: false} })
+    socket.emit('stop', {
+      room: 'room 237',
+      keyName
+    })
   }
 
   render(){

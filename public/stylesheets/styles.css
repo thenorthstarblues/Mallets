@@ -2,6 +2,21 @@
   overflow: hidden;
 }
 
+.head-height {
+  height: 10vh;
+}
+
+.foot-height {
+  height: 6vh;
+}
+
+.body-height {
+  height: 84vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .my-footer {
 	position: absolute;
 	bottom: 0px;
@@ -14,10 +29,10 @@
   font-family: 'Orbitron', sans-serif;
 }
 
-.app-wrapper {
+.tile-box {
   margin: 5vh 0vh 5vh 0vh;
-  display: flex;
-  align-content: center;
+  height: 40vh;
+  width: 40vw;
 }
 
 .logo {

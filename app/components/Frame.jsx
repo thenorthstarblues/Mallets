@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-const Frame = (props) => {
-
-  return (
-    <div className="no-overflow">
-      <Navbar />
-      <div className="container is-fluid">
-        { props.children }
+class Frame extends Component {
+  render(){
+    return (
+      <div className="no-overflow">
+        <Navbar />
+        <div className="container is-fluid body-height">
+          { this.props.children }
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  )
+    )
+  }
 }
+
 
 const mapStateToProps = (state) => {
   return {}
