@@ -28,7 +28,9 @@ export const Login = ({ login }) => (
           </form>
         </section>
         <footer className="modal-card-foot">
-          <a className="button is-success">Log in</a>
+          <Link to="/menu">
+            <a className="button is-success">Log in</a>
+          </Link>
         </footer>
       </div>
     </div>
