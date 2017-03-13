@@ -39,6 +39,7 @@ class Kit extends Component {
 
   componentWillUnmount() {
     socket.emit('leave room', { room: this.props.room })
+    this.props.clearRoom();
   }
 
   onKeyDown(keyName) {
