@@ -11,7 +11,7 @@ const kitReducer = (prevState = initialState, action) => {
 
   switch (action.type) {
   case SET_KIT:
-    nextState.kir = action.kit;
+    nextState.kit = action.kit;
     break;
   default:
     return prevState;

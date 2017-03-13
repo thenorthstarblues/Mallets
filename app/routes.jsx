@@ -9,6 +9,7 @@ import Login from './components/Login'
 import Menu from './components/Menu'
 import NewRoom from './components/NewRoom'
 import JoinRoom from './components/JoinRoom'
+import Keyboards from './components/Keyboards'
 import WhoAmI from './components/WhoAmI'
 
 export default (
@@ -21,6 +22,7 @@ export default (
     <Route path="/menu" component={Menu} />
     <Route path="/new-room" component={NewRoom} />
     <Route path="/join-room" component={JoinRoom} />
+    <Route path="/keyboards" component={Keyboards} />
   </Route>
 )
 

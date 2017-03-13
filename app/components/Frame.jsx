@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { setRoom } from '../reducers/room'
+import { setKit } from '../reducers/kit'
 
 class Frame extends Component {
   constructor(props){
@@ -37,6 +38,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setRoom(roomName){
       dispatch(setRoom(roomName))
+    },
+    setKit(kitName){
+      dispatch(setKit(kitName))
     }
   }
 }

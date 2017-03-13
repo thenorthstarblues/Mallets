@@ -19,7 +19,7 @@ class JoinRoom extends Component {
     e.preventDefault();
     const roomToJoin = this.state.roomName.toLowerCase().replace(/[\W_]+/g, '');
     this.props.setRoom(roomToJoin);
-    browserHistory.push('/kit');
+    browserHistory.push('/keyboards');
   }
 
   render(){

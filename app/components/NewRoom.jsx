@@ -19,7 +19,7 @@ class NewRoom extends Component {
     e.preventDefault();
     const newRoom = this.state.roomName.toLowerCase().replace(/[\W_]+/g, '');
     this.props.setRoom(newRoom);
-    browserHistory.push('/kit');
+    browserHistory.push('/keyboards');
   }
 
   render(){
