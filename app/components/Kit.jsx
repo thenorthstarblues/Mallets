@@ -83,11 +83,11 @@ class Kit extends Component {
             </Note>
           <KeyBinding keyName="r" onKeyDown={this.onKeyDown} onKeyUp={this.onKeyUp} />
             <Note instrumentName={kit} name={'Bb3'} play={this.state.play.r}>
-              <div className={`key top right-marg button ${this.state.play.r ? 'is-focused' : ''}`}><h1>R</h1></div>
+              <div className={`key top right-margXtra button ${this.state.play.r ? 'is-focused' : ''}`}><h1>R</h1></div>
             </Note>
           <KeyBinding keyName="t" onKeyDown={this.onKeyDown} onKeyUp={this.onKeyUp} />
             <Note instrumentName={kit} name={'Db4'} play={this.state.play.t}>
-              <div className={`key top button ${this.state.play.t ? 'is-focused' : ''}`}><h1>T</h1></div>
+              <div className={`key top xtraLeftMarg button ${this.state.play.t ? 'is-focused' : ''}`}><h1>T</h1></div>
             </Note>
           <KeyBinding keyName="y" onKeyDown={this.onKeyDown} onKeyUp={this.onKeyUp} />
             <Note instrumentName={kit} name={'Eb4'} play={this.state.play.y}>
@@ -125,7 +125,7 @@ class Kit extends Component {
             </Note>
           <KeyBinding keyName="g" onKeyDown={this.onKeyDown} onKeyUp={this.onKeyUp} />
             <Note instrumentName={kit} name={'C4'} play={this.state.play.g}>
-              <div className={`key bottom button ${this.state.play.g ? 'is-focused' : ''}`}><h1>G</h1></div>
+              <div className={`key bottom middleC button ${this.state.play.g ? 'is-focused' : ''}`}><h1 id="middleCtext">G</h1></div>
             </Note>
           <KeyBinding keyName="h" onKeyDown={this.onKeyDown} onKeyUp={this.onKeyUp} />
             <Note instrumentName={kit} name={'D4'} play={this.state.play.h}>
