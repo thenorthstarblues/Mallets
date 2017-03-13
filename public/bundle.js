@@ -30446,6 +30446,7 @@ var initialState = {
 
 //constants
 var SET_KIT = 'SET_KIT';
+var CLEAR_KIT = 'CLEAR_KIT';
 
 //reducer
 var kitReducer = function kitReducer() {
@@ -30458,6 +30459,9 @@ var kitReducer = function kitReducer() {
     case SET_KIT:
       nextState.kit = action.kit;
       break;
+    case CLEAR_KIT:
+      nextState.kit = null;
+      break;
     default:
       return prevState;
   }
@@ -30469,6 +30473,12 @@ var setKit = exports.setKit = function setKit(kit) {
   return {
     type: SET_KIT,
     kit: kit
+  };
+};
+
+var clearKit = exports.clearKit = function clearKit() {
+  return {
+    type: CLEAR_KIT
   };
 };
 
@@ -41182,7 +41192,7 @@ var Keyboards = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'menu-box' },
+        { className: 'menu-box animated slideInRight' },
         _react2.default.createElement(
           'div',
           { className: 'text' },
@@ -41201,7 +41211,7 @@ var Keyboards = function (_Component) {
             _react2.default.createElement(
               'a',
               {
-                className: 'button is-info',
+                className: 'button is-large is-info',
                 name: 'vibraphone',
                 onClick: this.handleClick },
               'Vibraphone'
@@ -41213,7 +41223,7 @@ var Keyboards = function (_Component) {
             _react2.default.createElement(
               'a',
               {
-                className: 'button is-info',
+                className: 'button is-large is-info',
                 name: 'marimba',
                 onClick: this.handleClick },
               'Marimba'
@@ -41225,7 +41235,7 @@ var Keyboards = function (_Component) {
             _react2.default.createElement(
               'a',
               {
-                className: 'button is-info',
+                className: 'button is-large is-info',
                 name: 'xylophone',
                 onClick: this.handleClick },
               'Xylophone'
@@ -41237,7 +41247,7 @@ var Keyboards = function (_Component) {
             _react2.default.createElement(
               'a',
               {
-                className: 'button is-info',
+                className: 'button is-large is-info',
                 name: 'glockenspiel',
                 onClick: this.handleClick },
               'Glockenspiel'
@@ -41271,6 +41281,8 @@ var _react = __webpack_require__(3);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactOrchestra = __webpack_require__(497);
+
+var _reactRouter = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41322,12 +41334,18 @@ var Kit = function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      socket.emit('room', { room: this.props.room });
+      if (!this.props.kit) {
+        _reactRouter.browserHistory.push('/keyboards');
+      } else {
+        socket.emit('room', { room: this.props.room });
+      }
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       socket.emit('leave room', { room: this.props.room });
+      this.props.clearRoom();
+      this.props.clearKit();
     }
   }, {
     key: 'onKeyDown',
@@ -41771,7 +41789,7 @@ var Menu = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'menu-box' },
+        { className: 'menu-box animated slideInRight' },
         _react2.default.createElement(
           'div',
           { className: 'container is-fluid' },
@@ -41807,7 +41825,7 @@ var Menu = function (_Component) {
                   { to: '/new-room' },
                   _react2.default.createElement(
                     'button',
-                    { className: 'button is-primary' },
+                    { className: 'button is-large is-primary' },
                     _react2.default.createElement(
                       'span',
                       { className: 'icon is-small' },
@@ -41829,7 +41847,7 @@ var Menu = function (_Component) {
                   { to: '/join-room' },
                   _react2.default.createElement(
                     'button',
-                    { className: 'button is-primary' },
+                    { className: 'button is-large is-primary' },
                     _react2.default.createElement(
                       'span',
                       { className: 'icon is-small' },
@@ -41849,7 +41867,7 @@ var Menu = function (_Component) {
                 _react2.default.createElement(
                   'button',
                   {
-                    className: 'button is-primary',
+                    className: 'button is-large is-primary',
                     onClick: this.handleClick },
                   _react2.default.createElement(
                     'span',

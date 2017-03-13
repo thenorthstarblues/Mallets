@@ -15,7 +15,7 @@ class Menu extends Component {
 
   render(){
     return (
-      <div className="menu-box">
+      <div className="menu-box animated slideInRight">
 
         <div className="container is-fluid">
 
@@ -35,7 +35,7 @@ class Menu extends Component {
               <div className="control is-grouped">
                 <p className="control">
                   <Link to="/new-room">
-                    <button className="button is-primary">
+                    <button className="button is-large is-primary">
                       <span className="icon is-small">
                         <i className="fa fa-music" />
                       </span>
@@ -45,7 +45,7 @@ class Menu extends Component {
                 </p>
                 <p className="control">
                   <Link to="/join-room">
-                    <button className="button is-primary">
+                    <button className="button is-large is-primary">
                       <span className="icon is-small">
                         <i className="fa fa-group" />
                       </span>
@@ -55,7 +55,7 @@ class Menu extends Component {
                 </p>
                 <p className="control">
                   <button
-                    className="button is-primary"
+                    className="button is-large is-primary"
                     onClick={this.handleClick}>
                     <span className="icon is-small">
                       <i className="fa fa-user" />

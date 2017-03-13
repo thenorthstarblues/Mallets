@@ -16,14 +16,14 @@ class Keyboards extends Component {
 
   render(){
     return (
-      <div className="menu-box">
+      <div className="menu-box animated slideInRight">
         <div className="text">
           <p className="title is-1 margin2">What do you want to play?</p>
         </div>
         <div className="control is-grouped">
           <p className="control">
             <a
-              className="button is-info"
+              className="button is-large is-info"
               name="vibraphone"
               onClick={this.handleClick}>
               Vibraphone
@@ -31,7 +31,7 @@ class Keyboards extends Component {
           </p>
           <p className="control">
             <a
-              className="button is-info"
+              className="button is-large is-info"
               name="marimba"
               onClick={this.handleClick}>
               Marimba
@@ -39,7 +39,7 @@ class Keyboards extends Component {
           </p>
           <p className="control">
             <a
-              className="button is-info"
+              className="button is-large is-info"
               name="xylophone"
               onClick={this.handleClick}>
               Xylophone
@@ -47,7 +47,7 @@ class Keyboards extends Component {
           </p>
           <p className="control">
             <a
-              className="button is-info"
+              className="button is-large is-info"
               name="glockenspiel"
               onClick={this.handleClick}>
               Glockenspiel

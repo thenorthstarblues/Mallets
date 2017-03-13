@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import { Note, KeyBinding } from 'react-orchestra';
+import React, { Component } from 'react'
+import { Note, KeyBinding } from 'react-orchestra'
+import { browserHistory } from 'react-router'
 const io = require('socket.io-client')
 const socket = io()
 
@@ -34,12 +35,17 @@ class Kit extends Component {
   }
 
   componentDidMount() {
+    if (!this.props.kit){
+      browserHistory.push('/keyboards')
+    } else {
     socket.emit('room', {room: this.props.room})
+    }
   }
 
   componentWillUnmount() {
     socket.emit('leave room', { room: this.props.room })
     this.props.clearRoom();
+    this.props.clearKit();
   }
 
   onKeyDown(keyName) {
