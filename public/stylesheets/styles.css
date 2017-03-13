@@ -2,8 +2,15 @@
   overflow: hidden;
 }
 
-.lato {
+.lato4 {
   font-family: 'Lato';
+  font-size: 4rem;
+}
+
+.lato2 {
+  font-family: 'Lato';
+  font-size: 2rem;
+  font-style: italic;
 }
 
 .head-height {
@@ -57,14 +64,29 @@
 }
 
 .menu-box {
-  position: absolute;
-  left: 0px;
-  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  /*justify-content: space-around;*/
 }
 
-.menu-contain {
+.menu-top {
+  align-self: flex-start;
+}
+
+.menu-bottom {
+  align-self: flex-start;
+}
+
+.space {
   display: flex;
-  align-content: center;
+  justify-content: space-between;
+}
+
+.margin2 {
+  margin: 2rem 0;
 }
 
 .kit-container {
