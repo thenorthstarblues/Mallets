@@ -34,6 +34,12 @@ class Kit extends Component {
     }})
   }
 
+  componenWillMount(){
+    if (!this.state.kit){
+      this.props.push('/keyboards')
+    }
+  }
+
   componentDidMount() {
     socket.emit('room', {room: this.props.room})
   }

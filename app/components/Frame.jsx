@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import { setRoom } from '../reducers/room'
 import { setKit } from '../reducers/kit'
+import { push } from 'react-router-redux'
 
 class Frame extends Component {
   constructor(props){
@@ -41,7 +42,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     setKit(kitName){
       dispatch(setKit(kitName))
-    }
+    },
+    push(route){
+      dispatch(push(route))
+    },
   }
 }
 
