@@ -35,11 +35,7 @@ class Kit extends Component {
   }
 
   componentDidMount() {
-    if (!this.props.kit){
-      browserHistory.push('/keyboards')
-    } else {
     socket.emit('room', {room: this.props.room})
-    }
   }
 
   componentWillUnmount() {

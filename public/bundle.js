@@ -331,7 +331,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -1576,50 +1576,6 @@ module.exports = { debugTool: debugTool };
 
 /***/ }),
 /* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
-
-/***/ }),
-/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1706,6 +1662,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
 
 /***/ }),
 /* 18 */
@@ -2132,7 +2132,7 @@ var _assign = __webpack_require__(6);
 
 var PooledClass = __webpack_require__(36);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 var warning = __webpack_require__(2);
 
 var didWarnForAddedNewProperty = false;
@@ -28240,7 +28240,7 @@ module.exports = shouldUpdateReactComponent;
 
 var _assign = __webpack_require__(6);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 var warning = __webpack_require__(2);
 
 var validateDOMNesting = emptyFunction;
@@ -33050,7 +33050,7 @@ Polling.prototype.uri = function () {
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -39467,7 +39467,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 var _Frame = __webpack_require__(280);
 
@@ -41032,7 +41032,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41156,7 +41156,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41282,7 +41282,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactOrchestra = __webpack_require__(497);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41332,13 +41332,16 @@ var Kit = function (_Component) {
       this.setState({ play: _defineProperty({}, payload.keyName, false) });
     }
   }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (!this.props.kit.kit) {
+        _reactRouter.browserHistory.push('/menu');
+      }
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (!this.props.kit) {
-        _reactRouter.browserHistory.push('/keyboards');
-      } else {
-        socket.emit('room', { room: this.props.room });
-      }
+      socket.emit('room', { room: this.props.room });
     }
   }, {
     key: 'componentWillUnmount',
@@ -41659,7 +41662,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 var _auth = __webpack_require__(68);
 
@@ -41756,7 +41759,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41908,7 +41911,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41974,7 +41977,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42096,7 +42099,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42190,7 +42193,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -65821,7 +65824,7 @@ var DOMLazyTree = __webpack_require__(46);
 var ExecutionEnvironment = __webpack_require__(8);
 
 var createNodesFromMarkup = __webpack_require__(362);
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 var invariant = __webpack_require__(1);
 
 var Danger = {
@@ -67566,7 +67569,7 @@ var ReactInstrumentation = __webpack_require__(15);
 var ReactMultiChild = __webpack_require__(444);
 var ReactServerRenderingTransaction = __webpack_require__(449);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 var escapeTextContentForBrowser = __webpack_require__(86);
 var invariant = __webpack_require__(1);
 var isEventSupported = __webpack_require__(137);
@@ -70462,7 +70465,7 @@ var _assign = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(20);
 var Transaction = __webpack_require__(85);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 
 var RESET_BATCHED_UPDATES = {
   initialize: emptyFunction,
@@ -71030,7 +71033,7 @@ var ReactCurrentOwner = __webpack_require__(21);
 var ReactReconciler = __webpack_require__(47);
 var ReactChildReconciler = __webpack_require__(416);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 var flattenChildren = __webpack_require__(469);
 var invariant = __webpack_require__(1);
 
@@ -72666,7 +72669,7 @@ var SyntheticTransitionEvent = __webpack_require__(463);
 var SyntheticUIEvent = __webpack_require__(63);
 var SyntheticWheelEvent = __webpack_require__(464);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 var getEventCharCode = __webpack_require__(134);
 var invariant = __webpack_require__(1);
 
@@ -78319,7 +78322,7 @@ module.exports = PooledClass;
 var PooledClass = __webpack_require__(520);
 var ReactElement = __webpack_require__(37);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 var traverseAllChildren = __webpack_require__(529);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
@@ -79415,7 +79418,7 @@ var ReactElement = __webpack_require__(37);
 var ReactPropTypeLocationNames = __webpack_require__(149);
 var ReactPropTypesSecret = __webpack_require__(242);
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(17);
 var getIteratorFn = __webpack_require__(151);
 var warning = __webpack_require__(2);
 
@@ -84408,7 +84411,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(254);
 
-var _reactRouter = __webpack_require__(17);
+var _reactRouter = __webpack_require__(16);
 
 var _routes = __webpack_require__(252);
 
