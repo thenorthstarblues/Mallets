@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 export const Login = ({ login }) => (
     <div className="modal is-active">
@@ -6,7 +7,9 @@ export const Login = ({ login }) => (
       <div className="modal-card">
         <header className="modal-card-head">
           <p className="modal-card-title">Welcome</p>
-          <button className="delete"></button>
+            <Link to="welcome">
+              <button className="delete" />
+            </Link>
         </header>
         <section className="modal-card-body">
           <form>
@@ -25,7 +28,7 @@ export const Login = ({ login }) => (
           </form>
         </section>
         <footer className="modal-card-foot">
-          <a className="button is-success">Login</a>
+          <a className="button is-success">Log in</a>
         </footer>
       </div>
     </div>

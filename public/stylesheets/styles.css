@@ -29,6 +29,17 @@
   font-family: 'Orbitron', sans-serif;
 }
 
+.open {
+  display: flex;
+  align-items: center;
+}
+
+.intro {
+  font-family: 'Lato';
+  font-size: 6rem;
+  color: mediumaquamarine;
+}
+
 .tile-box {
   margin: 5vh 0vh 5vh 0vh;
   height: 40vh;
