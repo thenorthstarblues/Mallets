@@ -2,6 +2,10 @@
   overflow: hidden;
 }
 
+.lato {
+  font-family: 'Lato';
+}
+
 .head-height {
   height: 10vh;
 }
@@ -50,6 +54,17 @@
   font-family: 'Lato', sans-serif;
   font-weight: 600;
   font-size: 2.5rem;
+}
+
+.menu-box {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+}
+
+.menu-contain {
+  display: flex;
+  align-content: center;
 }
 
 .kit-container {

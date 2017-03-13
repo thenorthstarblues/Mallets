@@ -10,18 +10,27 @@ class Kit extends Component {
       play: {},
       kit: this.props.kit,
     }
-    socket.on('receive play', (payload) => {
-      this.updateStateFromSockets(payload)
+    socket.on('receive-play', (payload) => {
+      this.updateKeyToTrue(payload)
     })
-    socket.on('receive stop', (payload) => {
-      this.updateStateFromSockets(payload)
+    socket.on('receive-stop', (payload) => {
+      this.updateKeyToFalse(payload)
     })
+
     this.onKeyDown = this.onKeyDown.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
   }
 
-  updateStateFromSockets(payload) {
-    this.setState({[payload.keyName]: ![payload.keyName]})
+  updateKeyToTrue(payload) {
+    this.setState({play: {
+      [payload.keyName]: true,
+    }})
+  }
+
+  updateKeyToFalse(payload) {
+    this.setState({play: {
+      [payload.keyName]: false,
+    }})
   }
 
   componentDidMount() {

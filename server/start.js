@@ -50,10 +50,10 @@ if (module === require.main) {
 
   const io = require('socket.io')(server);
   io.on('connection', (socket) => {
-    console.log('a user connected')
+    console.log(socket.id, ' connected')
 
     socket.on('disconnect', () => {
-      console.log('user disconnected');
+      console.log(socket.id, ' disconnected')
     })
     socket.on('room', function(data) {
       socket.join(data.room);
@@ -62,12 +62,10 @@ if (module === require.main) {
       socket.leave(data.room)
     })
     socket.on('play', function(data) {
-      socket.broadcast.to(data.room).emit('receive play',
-      data)
+        socket.to(data.room).emit('receive-play', data)
     })
     socket.on('stop', function(data) {
-      socket.broadcast.to(data.room).emit('receive stop',
-      data)
+        socket.to(data.room).emit('receive-stop', data)
     })
   })
 }
