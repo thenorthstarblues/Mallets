@@ -41238,7 +41238,7 @@ var Keyboards = function (_Component) {
               'a',
               {
                 className: 'button is-info',
-                name: 'Glockenspiel',
+                name: 'glockenspiel',
                 onClick: this.handleClick },
               'Glockenspiel'
             )
@@ -41704,9 +41704,13 @@ var Login = exports.Login = function Login(_ref) {
         'footer',
         { className: 'modal-card-foot' },
         _react2.default.createElement(
-          'a',
-          { className: 'button is-success' },
-          'Log in'
+          _reactRouter.Link,
+          { to: '/menu' },
+          _react2.default.createElement(
+            'button',
+            { className: 'button is-success' },
+            'Log in'
+          )
         )
       )
     )
@@ -41728,6 +41732,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
@@ -41736,158 +41742,138 @@ var _reactRouter = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Menu = function Menu(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: 'menu-box' },
-    _react2.default.createElement(
-      'div',
-      { className: 'container is-fluid' },
-      _react2.default.createElement(
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Menu = function (_Component) {
+  _inherits(Menu, _Component);
+
+  function Menu(props) {
+    _classCallCheck(this, Menu);
+
+    var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(Menu, [{
+    key: 'handleClick',
+    value: function handleClick(e) {
+      this.props.setRoom(null);
+      _reactRouter.browserHistory.push('/keyboards');
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
         'div',
-        { className: 'menu-top' },
-        _react2.default.createElement(
-          'h1',
-          { className: 'title lato4 margin2' },
-          'Get your mallets!'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'menu-middle' },
-        _react2.default.createElement(
-          'h2',
-          { className: 'subtitle lato2 margin2' },
-          'What do you want to do?'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'menu-bottom' },
+        { className: 'menu-box' },
         _react2.default.createElement(
           'div',
-          { className: 'control is-grouped' },
+          { className: 'container is-fluid' },
           _react2.default.createElement(
-            'p',
-            { className: 'control' },
+            'div',
+            { className: 'menu-top' },
             _react2.default.createElement(
-              'a',
-              { className: 'button is-primary' },
-              _react2.default.createElement(
-                'span',
-                { className: 'icon is-small' },
-                _react2.default.createElement('i', { className: 'fa fa-music' })
-              ),
-              _react2.default.createElement(
-                'span',
-                null,
-                'Start a Room'
-              )
+              'h1',
+              { className: 'title lato4 margin2' },
+              'Get your mallets!'
             )
           ),
           _react2.default.createElement(
-            'p',
-            { className: 'control' },
+            'div',
+            { className: 'menu-middle' },
             _react2.default.createElement(
-              'a',
-              { className: 'button is-primary' },
-              _react2.default.createElement(
-                'span',
-                { className: 'icon is-small' },
-                _react2.default.createElement('i', { className: 'fa fa-group' })
-              ),
-              _react2.default.createElement(
-                'span',
-                null,
-                'Join a Room'
-              )
+              'h2',
+              { className: 'subtitle lato2 margin2' },
+              'What do you want to do?'
             )
           ),
           _react2.default.createElement(
-            'p',
-            { className: 'control' },
+            'div',
+            { className: 'menu-bottom' },
             _react2.default.createElement(
-              'a',
-              { className: 'button is-primary' },
+              'div',
+              { className: 'control is-grouped' },
               _react2.default.createElement(
-                'span',
-                { className: 'icon is-small' },
-                _react2.default.createElement('i', { className: 'fa fa-user' })
+                'p',
+                { className: 'control' },
+                _react2.default.createElement(
+                  _reactRouter.Link,
+                  { to: '/new-room' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'button is-primary' },
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'icon is-small' },
+                      _react2.default.createElement('i', { className: 'fa fa-music' })
+                    ),
+                    _react2.default.createElement(
+                      'span',
+                      null,
+                      'Start a Room'
+                    )
+                  )
+                )
               ),
               _react2.default.createElement(
-                'span',
-                null,
-                'Play by Myself'
+                'p',
+                { className: 'control' },
+                _react2.default.createElement(
+                  _reactRouter.Link,
+                  { to: '/join-room' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'button is-primary' },
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'icon is-small' },
+                      _react2.default.createElement('i', { className: 'fa fa-group' })
+                    ),
+                    _react2.default.createElement(
+                      'span',
+                      null,
+                      'Join a Room'
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'p',
+                { className: 'control' },
+                _react2.default.createElement(
+                  'button',
+                  {
+                    className: 'button is-primary',
+                    onClick: this.handleClick },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'icon is-small' },
+                    _react2.default.createElement('i', { className: 'fa fa-user' })
+                  ),
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    'Play by Myself'
+                  )
+                )
               )
             )
           )
         )
-      )
-    )
-  );
-};
+      );
+    }
+  }]);
+
+  return Menu;
+}(_react.Component);
 
 exports.default = Menu;
-
-
-_react2.default.createElement(
-  'div',
-  { className: 'control is-grouped' },
-  _react2.default.createElement(
-    'p',
-    { className: 'control' },
-    _react2.default.createElement(
-      'a',
-      { className: 'button is-primary' },
-      _react2.default.createElement(
-        'span',
-        { className: 'icon is-small' },
-        _react2.default.createElement('i', { className: 'fa fa-music' })
-      ),
-      _react2.default.createElement(
-        'span',
-        null,
-        'Start a Room'
-      )
-    )
-  ),
-  _react2.default.createElement(
-    'p',
-    { className: 'control' },
-    _react2.default.createElement(
-      'a',
-      { className: 'button is-primary' },
-      _react2.default.createElement(
-        'span',
-        { className: 'icon is-small' },
-        _react2.default.createElement('i', { className: 'fa fa-group' })
-      ),
-      _react2.default.createElement(
-        'span',
-        null,
-        'Join a Room'
-      )
-    )
-  ),
-  _react2.default.createElement(
-    'p',
-    { className: 'control' },
-    _react2.default.createElement(
-      'a',
-      { className: 'button is-primary' },
-      _react2.default.createElement(
-        'span',
-        { className: 'icon is-small' },
-        _react2.default.createElement('i', { className: 'fa fa-user' })
-      ),
-      _react2.default.createElement(
-        'span',
-        null,
-        'Play by Myself'
-      )
-    )
-  )
-);
 
 /***/ }),
 /* 286 */

@@ -29,7 +29,7 @@ export const Login = ({ login }) => (
         </section>
         <footer className="modal-card-foot">
           <Link to="/menu">
-            <a className="button is-success">Log in</a>
+            <button className="button is-success">Log in</button>
           </Link>
         </footer>
       </div>

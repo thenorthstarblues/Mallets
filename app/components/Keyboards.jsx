@@ -48,7 +48,7 @@ class Keyboards extends Component {
           <p className="control">
             <a
               className="button is-info"
-              name="Glockenspiel"
+              name="glockenspiel"
               onClick={this.handleClick}>
               Glockenspiel
             </a>
