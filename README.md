@@ -8,7 +8,7 @@ To run the app on your local machine, clone the repository and run `npm install`
 
 ### Prerequisites
 
-Hops of Grace requires Node 6.7.0 or later.
+Mallets requires Node 6.7.0 or later.
 
 ## Built With
 
