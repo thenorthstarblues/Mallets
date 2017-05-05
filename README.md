@@ -1,6 +1,6 @@
 # Mallets
 
-Mallets is an online keyboard instrument that connects users via web sockets so that they can play keyboards together! It was built using React/Redux, Socket.io, Node, and Express. Play it [here][www.playmallets.com]!
+Mallets is an online keyboard instrument that connects users via web sockets so that they can play keyboards together! It was built using React/Redux, Socket.io, Node, and Express. Play it [here](http://www.playmallets.com)!
 
 ## Quick Start
 
