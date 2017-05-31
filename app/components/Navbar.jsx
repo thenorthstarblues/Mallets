@@ -9,15 +9,6 @@ const Navbar = () => (
             <h1 className="logo">MALLETS</h1>
           </Link>
         </div>
-        <div className="nav-right">
-          <div className="nav-item">
-            <Link to="/welcome">
-              <span className="icon">
-                <i className="fa fa-home" />
-              </span>
-            </Link>
-          </div>
-        </div>
       </div>
     </nav>
   );

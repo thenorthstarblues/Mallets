@@ -42675,16 +42675,6 @@ var Kit = function (_Component) {
   }
 
   _createClass(Kit, [{
-    key: 'updateKeyToTrue',
-    value: function updateKeyToTrue(payload) {
-      this.setState({ play: _defineProperty({}, payload.keyName, true) });
-    }
-  }, {
-    key: 'updateKeyToFalse',
-    value: function updateKeyToFalse(payload) {
-      this.setState({ play: _defineProperty({}, payload.keyName, false) });
-    }
-  }, {
     key: 'componenWillMount',
     value: function componenWillMount() {
       if (!this.state.kit) {
@@ -42720,6 +42710,16 @@ var Kit = function (_Component) {
         room: this.props.room,
         keyName: keyName
       });
+    }
+  }, {
+    key: 'updateKeyToTrue',
+    value: function updateKeyToTrue(payload) {
+      this.setState({ play: _defineProperty({}, payload.keyName, true) });
+    }
+  }, {
+    key: 'updateKeyToFalse',
+    value: function updateKeyToFalse(payload) {
+      this.setState({ play: _defineProperty({}, payload.keyName, false) });
     }
   }, {
     key: 'render',
@@ -42911,10 +42911,10 @@ var Kit = function (_Component) {
             { instrumentName: kit, name: 'C4', play: this.state.play.g },
             _react2.default.createElement(
               'div',
-              { className: 'key bottom middleC button ' + (this.state.play.g ? 'is-focused' : '') },
+              { className: 'key bottom button ' + (this.state.play.g ? 'is-focused' : '') },
               _react2.default.createElement(
                 'h1',
-                { id: 'middleCtext' },
+                null,
                 'G'
               )
             )
@@ -43398,15 +43398,15 @@ var _reactDom = __webpack_require__(266);
 
 var _reactRouter = __webpack_require__(19);
 
-var _routes = __webpack_require__(264);
-
-var _routes2 = _interopRequireDefault(_routes);
-
 var _reactRedux = __webpack_require__(157);
 
 var _store = __webpack_require__(265);
 
 var _store2 = _interopRequireDefault(_store);
+
+var _routes = __webpack_require__(264);
+
+var _routes2 = _interopRequireDefault(_routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43415,7 +43415,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   { store: _store2.default },
   _react2.default.createElement(_reactRouter.Router, { routes: _routes2.default, history: _reactRouter.browserHistory })
 ), document.getElementById('main'));
-// import { ConnectedRouter } from 'react-router-redux';
 
 /***/ }),
 /* 301 */
