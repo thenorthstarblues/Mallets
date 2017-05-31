@@ -1,8 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React from 'react';
+import { Link } from 'react-router';
 
-const Navbar = ({ user }) => {
-  return (
+const Navbar = () => (
     <nav className="nav has-shadow">
       <div className="nav-left">
         <div className="nav-item">
@@ -12,16 +11,15 @@ const Navbar = ({ user }) => {
         </div>
         <div className="nav-right">
           <div className="nav-item">
-            <Link to={user ? '/welcome' : '/login'}>
-              <button className="button is-info">
-                {user ? 'Log out' : 'Log in'}
-              </button>
+            <Link to="/welcome">
+              <span className="icon">
+                <i className="fa fa-home" />
+              </span>
             </Link>
           </div>
         </div>
       </div>
     </nav>
-  )
-}
+  );
 
 export default Navbar;
