@@ -43191,23 +43191,6 @@ var Navbar = function Navbar() {
             'MALLETS'
           )
         )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'nav-right' },
-        _react2.default.createElement(
-          'div',
-          { className: 'nav-item' },
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/welcome' },
-            _react2.default.createElement(
-              'span',
-              { className: 'icon' },
-              _react2.default.createElement('i', { className: 'fa fa-home' })
-            )
-          )
-        )
       )
     )
   );
